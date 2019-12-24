@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Cermati Project</string>
+    <string name="main_search_hint">Search Github user</string>
+    <string name="description_avatar">User Avatar</string>
+
+    <string name="error_not_found">No Results Found for "%1s"</string>
+    <string name="error_connection">Could Not Connect to Server, Try Again Later</string>
+    <string name="error_no_query">Type username in searchbox to start searching</string>
+</resources>

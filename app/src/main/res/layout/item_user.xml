@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewBindingAdapter"
+            type="com.dwirandyh.cermatiproject.utils.ViewBindingAdapter" />
+
+        <variable
+            name="user"
+            type="com.dwirandyh.cermatiproject.model.GithubUser" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="@string/description_avatar"
+            android:src="@drawable/ic_account"
+            app:photoUrl="@{user.avatarUrl}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@{user.login}"
+            android:textSize="20sp"
+            tools:text="dwirandyh" />
+
+    </LinearLayout>
+</layout>
