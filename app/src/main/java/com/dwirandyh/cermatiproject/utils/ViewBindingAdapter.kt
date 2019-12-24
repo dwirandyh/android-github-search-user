@@ -9,7 +9,6 @@ import com.dwirandyh.cermatiproject.R
 class ViewBindingAdapter {
 
     companion object {
-
         @BindingAdapter("photoUrl")
         @JvmStatic
         fun loadPhotoFromUrl(view: ImageView, url: String?) {

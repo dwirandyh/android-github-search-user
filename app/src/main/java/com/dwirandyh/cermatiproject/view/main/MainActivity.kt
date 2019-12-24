@@ -1,5 +1,7 @@
 package com.dwirandyh.cermatiproject.view.main
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -7,11 +9,14 @@ import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dwirandyh.cermatiproject.R
 import com.dwirandyh.cermatiproject.adapter.UserAdapter
+import com.dwirandyh.cermatiproject.adapter.UserViewHolder
 import com.dwirandyh.cermatiproject.databinding.ActivityMainBinding
 import com.dwirandyh.cermatiproject.di.DaggerAppComponent
+import com.dwirandyh.cermatiproject.model.GithubUser
 import com.dwirandyh.cermatiproject.model.NetworkStatus
 import com.dwirandyh.cermatiproject.utils.RxViewObservable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -20,7 +25,7 @@ import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), UserViewHolder.OnClickListener {
 
     companion object {
         val TAG = MainActivity::class.java.simpleName
@@ -31,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var mBinding: ActivityMainBinding
     private lateinit var mViewModel: MainViewModel
-    private val mUserAdapter = UserAdapter()
+    private val mUserAdapter = UserAdapter(this)
 
     private val mDisposable = CompositeDisposable()
 
@@ -87,11 +92,19 @@ class MainActivity : AppCompatActivity() {
 
     private fun initUserRecyclerView() {
         mBinding.recyclerUser.layoutManager = LinearLayoutManager(this)
+        mBinding.recyclerUser.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         mBinding.recyclerUser.adapter = mUserAdapter
+    }
+
+    override fun onUserClick(user: GithubUser) {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(user.htmlUrl))
+        startActivity(intent)
     }
 
     override fun onDestroy() {
         super.onDestroy()
         mDisposable.clear()
     }
+
+
 }

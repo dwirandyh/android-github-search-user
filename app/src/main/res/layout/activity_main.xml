@@ -67,6 +67,7 @@
                 android:visibility="@{networkStatus.status == NetworkStatus.LOADING ? View.VISIBLE : View.INVISIBLE}" />
 
             <TextView
+                android:id="@+id/text_message"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"

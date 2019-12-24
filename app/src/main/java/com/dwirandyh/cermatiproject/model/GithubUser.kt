@@ -51,7 +51,7 @@ data class GithubUser(
             }
 
             override fun areContentsTheSame(oldItem: GithubUser, newItem: GithubUser): Boolean {
-                return oldItem.id == newItem.id
+                return oldItem.id == newItem.id && oldItem.avatarUrl == newItem.avatarUrl && oldItem.login == newItem.login
             }
 
         }

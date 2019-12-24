@@ -6,11 +6,12 @@ import androidx.paging.PagedListAdapter
 import com.dwirandyh.cermatiproject.model.GithubUser
 import com.dwirandyh.cermatiproject.databinding.ItemUserBinding
 
-class UserAdapter : PagedListAdapter<GithubUser, UserViewHolder>(GithubUser.DIFF_UTIL) {
+class UserAdapter(private val onClickListener: UserViewHolder.OnClickListener) :
+    PagedListAdapter<GithubUser, UserViewHolder>(GithubUser.DIFF_UTIL) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         val binding = ItemUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return UserViewHolder(binding)
+        return UserViewHolder(binding, onClickListener)
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {

@@ -24,6 +24,8 @@ buildscript {
     // Dependency Injection
     ext.dagger_version = '2.25.2'
 
+    // Mockito
+    ext.mockito_version = '2.19.0'
 
     repositories {
         google()

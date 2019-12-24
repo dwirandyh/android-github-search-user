@@ -7,9 +7,9 @@ data class NetworkStatus(
     var message: String = ""
 ) {
     companion object {
-        const val SUCCESS = 200
-        const val NOT_FOUND = 404
-        const val ERROR = 500
+        const val SUCCESS = 2
+        const val NOT_FOUND = 3
+        const val ERROR = -1
         const val LOADING = 1
     }
 }
