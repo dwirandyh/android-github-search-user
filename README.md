@@ -24,4 +24,10 @@ These are library that i used
 - Retrofit
 - RxJava/RxKotlin
 
-Programming used is Kotlin
+Testing
+
+- JUnit
+- Espresso
+- Mockito
+
+Programming used is Kotlin with Unit Testing & Instrumented Testing
