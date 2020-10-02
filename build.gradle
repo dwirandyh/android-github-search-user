@@ -31,7 +31,7 @@ buildscript {
     ext.dagger_version = '2.25.2'
 
     // Testing
-    ext.mockito_version = '2.19.0'
+    ext.mockito_version = '2.23.0'
     ext.junit_version = "4.12"
     ext.espresso_version = "3.2.0"
     ext.rules_version = "1.0.2"
